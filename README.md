@@ -18,6 +18,8 @@
 
 Repositorio del proyecto _"Watchdog Alarm"_ para asignatura HITO en _Inacap Concepción - Talcahuano_.
 
+---
+
 ### ¿En qué consiste "Watchdog Alarm"?
 _Watchdog Alarm_ es un sistema básico de alarmas de seguridad basada en la popular placa de desarrollo de Arduino UNO, solicitado para un certámen en la carrera de Electroónica para _Inacap Concepción - Talcahuano_
 En este proyecto se hace uso de hardware y de software para la supervisión de los perímetros cubiertos por los distintos sensores que se pueden conectar hacia la placa Arduino, tales como sensores PIR (detección de movimiento), sensores infrarrojos (barrera delimitadora de perímetro) o reed switchs (apertura de puertas).
