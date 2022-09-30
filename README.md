@@ -30,4 +30,4 @@ _[Pendiente de subir]_
 
 ### Licencia
 [![cc-by-sa-image]][cc-by-sa]
-Este software se distribuye bajo la licencia **Creative Commons BY-NC-SA v4.0**
+Este software se distribuye bajo la licencia **Creative Commons BY-SA v4.0**
