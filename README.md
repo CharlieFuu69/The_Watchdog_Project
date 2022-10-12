@@ -54,13 +54,19 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
 
 ### Instalación / Esquema del circuito
 
+* **Esquema físico (Tinkercad):**
+![The_Watchdog_Project_Image](https://user-images.githubusercontent.com/77955772/195429003-2ade9a4c-f5ee-4cb5-a1ad-4564956b2421.png)
 
+* **Esquema electrónico PDF (Tinkercad):**
+[¡Accede al PDF en esta URL!](https://github.com/CharlieFuu69/The_Watchdog_Project/files/9768072/The_Watchdog_Project_Scheme.pdf)
 
-
+---
 
 ### Código fuente
 El código fuente de este proyecto se encuentra dividido en las siguientes 2 carpetas:
 _[Pendiente de subir]_
+
+---
 
 ### Licencia
 [![cc-by-sa-image]][cc-by-sa]
