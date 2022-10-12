@@ -32,23 +32,23 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
 
 ### Sensores y componentes utilizados
 
-* **Arduino UNO R3:**
-<img width="150" height="150" src="https://arduino.cl/wp-content/uploads/2019/09/Arduino-Uno.jpg">
-
-* **Módulo sensor PIR HC-SR501 (2):**
-<img width="150" height="125" src="https://www.seekpng.com/png/detail/356-3562233_pir-motion-sensor-module-pir-motion-sensor.png">
-
-* **Módulo Reed Switch (1):**
-<img width="150" height="125" src="https://www.seekpng.com/png/detail/277-2771854_reed-switch.png">
-
-* **Diodos LED (Rojo y verde) (2):**
-<img width="150" height="150" src="https://atlas-content-cdn.pixelsquid.com/assets_v2/283/2830791147733914962/jpeg-600/G03.jpg">
-
-* **Buzzer piezoeléctrico (1):**
-<img width="150" height="125" src="https://http2.mlstatic.com/D_NQ_NP_894633-MLC48098689757_112021-O.webp">
-
-* **Display LCD 16x2 + Interfaz I2C (1):**
-<img width="150" height="125" src="https://www.winstar.com.tw/uploads/photos/character-lcd-display-modules/WH1602W-TDI-2.jpg">
+> * **Arduino UNO R3:**
+> <img width="150" height="150" src="https://arduino.cl/wp-content/uploads/2019/09/Arduino-Uno.jpg">
+>
+> * **Módulo sensor PIR HC-SR501 (2):**
+> <img width="150" height="125" src="https://www.seekpng.com/png/detail/356-3562233_pir-motion-sensor-module-pir-motion-sensor.png">
+>
+> * **Módulo Reed Switch (1):**
+> <img width="150" height="125" src="https://www.seekpng.com/png/detail/277-2771854_reed-switch.png">
+>
+> * **Diodos LED (Rojo y verde) (2):**
+> <img width="150" height="150" src="https://atlas-content-cdn.pixelsquid.com/assets_v2/283/2830791147733914962/jpeg-600/G03.jpg">
+>
+> * **Buzzer piezoeléctrico (1):**
+> <img width="150" height="125" src="https://http2.mlstatic.com/D_NQ_NP_894633-MLC48098689757_112021-O.webp">
+>
+> * **Display LCD 16x2 + Interfaz I2C (1):**
+> <img width="150" height="125" src="https://www.winstar.com.tw/uploads/photos/character-lcd-display-modules/WH1602W-TDI-2.jpg">
 
 ---
 
