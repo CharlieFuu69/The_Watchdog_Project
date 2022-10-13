@@ -51,10 +51,16 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
 ### Zona de ensamblaje
 
 * **Lista de componentes necesarios:**
-  |Nombre del componente|Imagen de referencia|
-  |---|---|
-  |**Arduino UNO R3**|<img width="150" height="150" src="https://arduino.cl/wp-content/uploads/2019/09/Arduino-Uno.jpg">|
-  |**Módulo sensor PIR HC-SR501 (2)**|<img width="150" height="125" src="https://www.seekpng.com/png/detail/356-3562233_pir-motion-sensor-module-pir-motion-sensor.png">|
+  |Nombre del componente|Imagen de referencia|Cantidad|
+  |---|---|---|
+  |**Arduino UNO R3**|<img width="150" height="150" src="https://arduino.cl/wp-content/uploads/2019/09/Arduino-Uno.jpg">|1|
+  |**Módulo sensor PIR HC-SR501**|<img width="150" height="125" src="https://www.seekpng.com/png/detail/356-3562233_pir-motion-sensor-module-pir-motion-sensor.png">|3|
+  |**Diodos LED (Rojo y Verde)**|<img width="150" height="150" src="https://atlas-content-cdn.pixelsquid.com/assets_v2/283/2830791147733914962/jpeg-600/G03.jpg">|2|
+  |**Buzzer piezoeléctrico**|<img width="150" height="125" src="https://http2.mlstatic.com/D_NQ_NP_894633-MLC48098689757_112021-O.webp">|1|
+  |**Display LCD 16x2 (Interfaz I2C incluida)**|<img width="150" height="125" src="https://www.winstar.com.tw/uploads/photos/character-lcd-display-modules/WH1602W-TDI-2.jpg">|1|
+  |**Resistores 10k**|<img width="150" height="150" src=https://m.media-amazon.com/images/I/51FT14kt4HL._SX466_.jpg>|1|
+  |**Resistores 1k**|<img width="150" height="150" src=https://i.ebayimg.com/images/g/C9gAAOSwqMxfi3dA/s-l500.jpg>|2|
+  |**Pulsador Normal Abierto**|<img width="150" height="150" src=https://cdn.sparkfun.com//assets/parts/2/6/2/9/09190-03-L.jpg>|1|
   
 
 * **¡Mira los esquemas del circuito!:**
@@ -62,28 +68,6 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
   ![The_Watchdog_Project_Image](https://user-images.githubusercontent.com/77955772/195429003-2ade9a4c-f5ee-4cb5-a1ad-4564956b2421.png)
   
   - **Esquema electrónico PDF (Tinkercad):** [¡Accede al PDF en esta URL!](https://github.com/CharlieFuu69/The_Watchdog_Project/files/9768072/The_Watchdog_Project_Scheme.pdf)
-
----
-
-### Sensores y componentes utilizados
-
-> * **Arduino UNO R3:**
-> <img width="150" height="150" src="https://arduino.cl/wp-content/uploads/2019/09/Arduino-Uno.jpg">
->
-> * **Módulo sensor PIR HC-SR501 (2):**
-> <img width="150" height="125" src="https://www.seekpng.com/png/detail/356-3562233_pir-motion-sensor-module-pir-motion-sensor.png">
->
-> * **Módulo Reed Switch (1):**
-> <img width="150" height="125" src="https://www.seekpng.com/png/detail/277-2771854_reed-switch.png">
->
-> * **Diodos LED (Rojo y verde) (2):**
-> <img width="150" height="150" src="https://atlas-content-cdn.pixelsquid.com/assets_v2/283/2830791147733914962/jpeg-600/G03.jpg">
->
-> * **Buzzer piezoeléctrico (1):**
-> <img width="150" height="125" src="https://http2.mlstatic.com/D_NQ_NP_894633-MLC48098689757_112021-O.webp">
->
-> * **Display LCD 16x2 + Interfaz I2C (1):**
-> <img width="150" height="125" src="https://www.winstar.com.tw/uploads/photos/character-lcd-display-modules/WH1602W-TDI-2.jpg">
 
 ---
 
