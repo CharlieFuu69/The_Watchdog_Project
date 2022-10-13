@@ -59,8 +59,9 @@ Las opciones de "Armar" y "Desarmar" estarán inhabilitadas si no se conecta una
 
 * **CONFIGURACIÓN PREVIA Y COMPILACIÓN:**
   * Descarga el último paquete lanzado en este repositorio. Este paquete incluye un instalador del programa GUI (Windows 7, 8, 8.1, 10 y 11) y la carpeta con el Sketch INO que debes subir a tu placa con [Arduino IDE (Software oficial)](https://www.arduino.cc/en/software). El IDE posee los drivers necesarios, pero si no has instalado los drivers de la Arduino, el programa GUI trae también los instaladores para Arduino UNO/CH340.
+  * Recuerda instalar la librería [LiquidCrystal I2C](https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/), la necesitas para el proceso de compilación ya que el proyecto utiliza una pantalla LCD.
   * Arma el circuito con todos sus componentes. Puedes encontrar la lista de componentes y los esquemas necesarios en la sección <ins>**"Zona de ensamblaje"**</ins>, adjuntado más abajo.
-  * Antes de compilar, configura la dirección del display LCD I2C en la línea `43` del archivo `alarm_firmware.ino`. La dirección dependerá del fabricante del IC que posee la interfaz I2C. Usa la siguiente tabla como referencia =D
+  * Antes de compilar, configura la dirección del display LCD I2C en la línea `42` del archivo `alarm_firmware.ino` (variable `i2c_adress`). La dirección dependerá del fabricante del IC que posee la interfaz I2C. Usa la siguiente tabla como referencia =D
      |Código y fabricante|Dirección|
      |---|---|
      |Texas Instruments - PCF8574|`0x27`|
@@ -104,10 +105,18 @@ Las opciones de "Armar" y "Desarmar" estarán inhabilitadas si no se conecta una
 
 ### Código fuente
 El código fuente de este proyecto se encuentra dividido en las siguientes 2 carpetas:
-_[Pendiente de subir]_
+|Ruta del repositorio|Detalles|
+|---|---|
+|`The_Watchdog_Project/RenPy_Client_GUI/`|Contiene el código fuente del cliente/programa GUI y las librerías utilizadas.|
+|`The_Watchdog_Project/Arduino_Sketch/`|Contiene el código fuente que hace funcionar la Arduino.|
+
+* **LIBRERÍAS DE TERCEROS UTILIZADAS:**
+  - **LiquidCrystal I2C:** [Referencia en Arduino.cc](https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/).
+  - **pySerial:** [Documentación en Read The Docs](https://pyserial.readthedocs.io/en/latest/)
 
 ---
 
 ### Licencia
 [![cc-by-sa-image]][cc-by-sa]
-Este software se distribuye bajo la licencia **Creative Commons BY-SA v4.0**
+Este software se distribuye bajo la licencia **Creative Commons CC-BY-SA v4.0**.
+Si quieres usar este proyecto para algún video o para adjuntarlo en algún sitio web, te agradecería que me dieras crédito adjuntando la URL de este repositorio :3
