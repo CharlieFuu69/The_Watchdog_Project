@@ -32,19 +32,49 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
 
 ### ¿Cómo utilizar el sistema?
 
-* **¿Cómo se utiliza una vez implementado el circuito?:**
-**VISUALIZACIÓN DE ACTIVIDAD**
-> 1) Descarga el último paquete lanzado en este repositorio. Este paquete incluye un instalador del programa GUI (Windows 7, 8, 8.1, 10 y 11) y la carpeta con el Sketch INO que debes subir a tu placa con [Arduino IDE (Software oficial)](https://www.arduino.cc/en/software). El IDE posee los drivers necesarios, pero si no has instalado los drivers de la Arduino, el programa GUI trae también los instaladores para Arduino UNO/CH340.
-> 2) Compila y sube el programa a la placa Arduino UNO. Cuando hayas subido el programa, tu placa podrá trabajar sin problemas.
-> 3) Al finalizar la subida debes cerrar el monitor serial de Arduino IDE, para que el programa GUI no tenga problemas para reconocer tu Arduino.
-> 4) Abre el programa GUI. No te preocupes por los puertos COM, pues el programa buscará automáticamente si algún puerto tiene conectada alguna placa Arduino.
-> 5) No te preocupes si tienes una Arduino no oficial. El programa GUI está preparado para reconocer réplicas genéricas de Arduino con el chip CH340.
+Primero, para que te familiarices con el programa GUI de Windows, te mostraré un vistazo del panel principal:
+<p align="center">
+  <img width="720" height="405" src="https://user-images.githubusercontent.com/77955772/195717098-75eec157-8ec7-4403-834c-676e307385c9.png">
+</p>
 
-**PUESTA EN MARCHA**
-> 1) Cuando la Arduino haya recibido el programa o haya sido conectada al PC, iniciará en modo <ins>**Desarmado**</ins>, es decir, estará detectando la actividad de los sensores pero no emitirá alertas de ningún tipo.
-> 2) Puedes armar el sistema de dos formas: físicamente manteniendo pulsado brevemente el botón, y desde el programa GUI (si es que tienes conectada la Arduino al PC). Sonarán 2 beeps, se encenderá el LED verde y se mostrará en el display que la alarma ya está armada.
-> 3) En el caso hipotético de que una de las zonas haya sido vulnerada, el buzzer emitirá secuencias de beeps largos señalando que una zona (o más) han sido vulneradas por intrusos. En el display aparecerá un ícono de Among Us xd.
-> 4) Para desactivar el ruido, puedes desarmar el sistema volviendo a presionar brevemente el botón o desactivando el sistema desde el programa GUI.
+<h5 align = "center">
+  <i>[Screenshot] Vista del panel principal de Watchdog Alarm.</i>
+</h5>
+
+El panel principal se divide en 2 áreas visuales. El <ins>**área izquierda**</ins> de la pantalla contiene el control básico para armar y desarmar el sistema de alarma, junto con la actividad de las zonas señalada con íconos y textualmente. El <ins>**área derecha**</ins> representa la posición de los sensores en un diagrama vertical de algún edificio o una residencia _(en este caso, el diagrama hace alusión a la sala de laboratorio donde desarrollé este proyecto)._
+
+Las opciones de "Armar" y "Desarmar" estarán inhabilitadas si no se conecta una Arduino al PC mediante un cable USB.
+
+**LISTA DE ÍCONOS EN LA UI:**
+|Ícono|Descripción|
+|---|---|
+|![ui_icon_waiting](https://user-images.githubusercontent.com/77955772/195720041-a490267d-2f0f-458d-8888-f90e2d0b454b.png)|Esperando respuesta/sincronización de la placa Arduino.|
+|![ui_icon_safe](https://user-images.githubusercontent.com/77955772/195719965-3dbcadad-c04e-43b9-897c-3285a403a136.png)|La zona es segura.|
+|![ui_icon_alert_disarmed](https://user-images.githubusercontent.com/77955772/195720173-77096a0c-1485-4017-bd6e-a148322792d0.png)|Intrusos detectados en la zona "X" (Desarmado)|
+|![ui_icon_alert_armed](https://user-images.githubusercontent.com/77955772/195720220-fdd8c335-b780-47cc-b0f2-f33f41aff1c5.png)|Intrusos detectados en la zona "X" (Armado)|
+
+---
+
+### ¿Cómo procedo a implementar el circuito?
+
+* **CONFIGURACIÓN PREVIA Y COMPILACIÓN:**
+  * Descarga el último paquete lanzado en este repositorio. Este paquete incluye un instalador del programa GUI (Windows 7, 8, 8.1, 10 y 11) y la carpeta con el Sketch INO que debes subir a tu placa con [Arduino IDE (Software oficial)](https://www.arduino.cc/en/software). El IDE posee los drivers necesarios, pero si no has instalado los drivers de la Arduino, el programa GUI trae también los instaladores para Arduino UNO/CH340.
+  * Arma el circuito con todos sus componentes. Puedes encontrar la lista de componentes y los esquemas necesarios en la sección <ins>**"Zona de ensamblaje"**</ins>, adjuntado más abajo.
+  * Antes de compilar, configura la dirección del display LCD I2C en la línea `43` del archivo `alarm_firmware.ino`. La dirección dependerá del fabricante del IC que posee la interfaz I2C. Usa la siguiente tabla como referencia =D
+     |Código y fabricante|Dirección|
+     |---|---|
+     |Texas Instruments - PCF8574|`0x27`|
+     |NXP Semiconductors - PCF8574|`0x3F`|
+  * Compila y sube el programa a tu placa Arduino UNO utilizando el IDE. Cuando hayas subido el programa, tu placa podrá trabajar sin problemas.
+  * Al finalizar la subida debes cerrar el monitor serial de Arduino IDE, para que el programa GUI no tenga problemas para reconocer tu Arduino.
+  * Abre el programa GUI. No te preocupes por los puertos COM, pues el programa buscará automáticamente si algún puerto tiene conectada alguna placa Arduino.
+  * No te preocupes si tienes una Arduino no oficial. El programa GUI está preparado para reconocer réplicas genéricas con el chip CH340.
+
+* **PUESTA EN MARCHA:**
+  * Cuando la Arduino haya recibido el programa o haya sido conectada al PC, iniciará en modo <ins>**Desarmado**</ins>, es decir, estará detectando la actividad de los sensores pero no emitirá alertas de ningún tipo.
+  * Puedes armar el sistema de dos formas: físicamente manteniendo pulsado brevemente el botón, y desde el programa GUI (si es que tienes conectada la Arduino al PC). Sonarán 2 beeps, se encenderá el LED verde y se mostrará en el display que la alarma ya está armada.
+  * En el caso hipotético de que una de las zonas haya sido vulnerada, el buzzer emitirá secuencias de beeps largos señalando que una zona (o más) han sido vulneradas por intrusos. En el display aparecerá un ícono de Among Us xd.
+  * Para desactivar el ruido, puedes desarmar el sistema volviendo a presionar brevemente el botón o desactivando el sistema desde el programa GUI.
 
 ---
 
