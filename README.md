@@ -30,6 +30,41 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
 
 ---
 
+### ¿Cómo utilizar el sistema?
+
+* **¿Cómo se utiliza una vez implementado el circuito?:**
+**VISUALIZACIÓN DE ACTIVIDAD**
+> 1) Descarga el último paquete lanzado en este repositorio. Este paquete incluye un instalador del programa GUI (Windows 7, 8, 8.1, 10 y 11) y la carpeta con el Sketch INO que debes subir a tu placa con [Arduino IDE (Software oficial)](https://www.arduino.cc/en/software). El IDE posee los drivers necesarios, pero si no has instalado los drivers de la Arduino, el programa GUI trae también los instaladores para Arduino UNO/CH340.
+> 2) Compila y sube el programa a la placa Arduino UNO. Cuando hayas subido el programa, tu placa podrá trabajar sin problemas.
+> 3) Al finalizar la subida debes cerrar el monitor serial de Arduino IDE, para que el programa GUI no tenga problemas para reconocer tu Arduino.
+> 4) Abre el programa GUI. No te preocupes por los puertos COM, pues el programa buscará automáticamente si algún puerto tiene conectada alguna placa Arduino.
+> 5) No te preocupes si tienes una Arduino no oficial. El programa GUI está preparado para reconocer réplicas genéricas de Arduino con el chip CH340.
+
+**PUESTA EN MARCHA**
+> 1) Cuando la Arduino haya recibido el programa o haya sido conectada al PC, iniciará en modo <ins>**Desarmado**</ins>, es decir, estará detectando la actividad de los sensores pero no emitirá alertas de ningún tipo.
+> 2) Puedes armar el sistema de dos formas: físicamente manteniendo pulsado brevemente el botón, y desde el programa GUI (si es que tienes conectada la Arduino al PC). Sonarán 2 beeps, se encenderá el LED verde y se mostrará en el display que la alarma ya está armada.
+> 3) En el caso hipotético de que una de las zonas haya sido vulnerada, el buzzer emitirá secuencias de beeps largos señalando que una zona (o más) han sido vulneradas por intrusos. En el display aparecerá un ícono de Among Us xd.
+> 4) Para desactivar el ruido, puedes desarmar el sistema volviendo a presionar brevemente el botón o desactivando el sistema desde el programa GUI.
+
+---
+
+### Zona de ensamblaje
+
+* **Lista de componentes necesarios:**
+  |Nombre del componente|Imagen de referencia|
+  |---|---|
+  |**Arduino UNO R3**|<img width="150" height="150" src="https://arduino.cl/wp-content/uploads/2019/09/Arduino-Uno.jpg">|
+  |**Módulo sensor PIR HC-SR501 (2)**|<img width="150" height="125" src="https://www.seekpng.com/png/detail/356-3562233_pir-motion-sensor-module-pir-motion-sensor.png">|
+  
+
+* **¡Mira los esquemas del circuito!:**
+  - **Esquema físico (Tinkercad):**
+  ![The_Watchdog_Project_Image](https://user-images.githubusercontent.com/77955772/195429003-2ade9a4c-f5ee-4cb5-a1ad-4564956b2421.png)
+  
+  - **Esquema electrónico PDF (Tinkercad):** [¡Accede al PDF en esta URL!](https://github.com/CharlieFuu69/The_Watchdog_Project/files/9768072/The_Watchdog_Project_Scheme.pdf)
+
+---
+
 ### Sensores y componentes utilizados
 
 > * **Arduino UNO R3:**
@@ -49,16 +84,6 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
 >
 > * **Display LCD 16x2 + Interfaz I2C (1):**
 > <img width="150" height="125" src="https://www.winstar.com.tw/uploads/photos/character-lcd-display-modules/WH1602W-TDI-2.jpg">
-
----
-
-### Instalación / Esquema del circuito
-
-* **Esquema físico (Tinkercad):**
-![The_Watchdog_Project_Image](https://user-images.githubusercontent.com/77955772/195429003-2ade9a4c-f5ee-4cb5-a1ad-4564956b2421.png)
-
-* **Esquema electrónico PDF (Tinkercad):**
-[¡Accede al PDF en esta URL!](https://github.com/CharlieFuu69/The_Watchdog_Project/files/9768072/The_Watchdog_Project_Scheme.pdf)
 
 ---
 
