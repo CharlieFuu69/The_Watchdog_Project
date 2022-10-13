@@ -122,7 +122,7 @@ init python:
         """Esta función crea y muestra un displayable de reloj en tiempo real (Local)"""
 
         now = datetime.now()
-        current_datetime = now.strftime("%d/%m/%Y - %H:%M:%S (GMT -3)")
+        current_datetime = now.strftime("%d/%m/%Y - %H:%M:%S")
         return Text(str(current_datetime),
         color = "#FFF", font = gui.interface_text_font, size = 19, outlines = [(2, "#000", 0, 0)]), 0.1
 
