@@ -64,10 +64,11 @@ Para acompañar al hardware, se implementó un programa cliente con el que el Ar
   
 
 * **¡Mira los esquemas del circuito!:**
-  - **Esquema físico (Tinkercad):**
-  ![The_Watchdog_Project_Image](https://user-images.githubusercontent.com/77955772/195429003-2ade9a4c-f5ee-4cb5-a1ad-4564956b2421.png)
+  - **Esquema pictórico (Tinkercad):**
+  <img width="720" height="349" src="https://user-images.githubusercontent.com/77955772/195632456-7d74b375-e121-447c-8d95-80e984914c8f.png">
   
-  - **Esquema electrónico PDF (Tinkercad):** [¡Accede al PDF en esta URL!](https://github.com/CharlieFuu69/The_Watchdog_Project/files/9768072/The_Watchdog_Project_Scheme.pdf)
+  - **Esquema electrónico (Tinkercad):**
+  [¡Obtén el PDF aquí!](https://github.com/CharlieFuu69/The_Watchdog_Project/files/9777993/The_Watchdog_Project_Scheme_02.pdf)
 
 ---
 
