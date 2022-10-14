@@ -6,7 +6,7 @@
 [cc-by-sa-shield]: https://img.shields.io/badge/Licencia-CC--BY--SA%204.0-brightgreen
 [renpy-shield]: https://img.shields.io/badge/Motor%20Gráfico-Ren'Py-red
 [arduino-shield]: https://img.shields.io/badge/Hardware-Arduino-blue
-[build-shield]: https://img.shields.io/badge/Build-Not%20available-yellow
+[build-shield]: https://img.shields.io/badge/Build-Passing-green
 
 <p align="center">
   <img width="200" height="200" src="https://user-images.githubusercontent.com/77955772/193131412-71156534-2981-4b9b-bc94-21015538ff8c.png">
