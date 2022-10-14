@@ -9,7 +9,7 @@
 [build-shield]: https://img.shields.io/badge/Build-Passing-green
 
 <p align="center">
-  <img width="200" height="200" src="https://user-images.githubusercontent.com/77955772/193131412-71156534-2981-4b9b-bc94-21015538ff8c.png">
+  <img width="200" height="200" src="https://user-images.githubusercontent.com/77955772/195935170-0eca162f-a566-4459-9316-24509700dead.png">
 </p>
 
 <h1 align = "center"> The Watchdog Project </h1>
