@@ -18,8 +18,8 @@
 
 Repositorio del proyecto _**<ins>"Watchdog Alarm"</ins>**_ para asignatura HITO en _Inacap Concepción - Talcahuano_.
 
-<img width="20" height="20" src="https://user-images.githubusercontent.com/77955772/195962734-6a3e86be-c5c5-475f-8980-815819b07dfa.png">
-**Descargas:** Obtén el software Presionando Aquí!
+<img align="left" width="35" height="35" src="https://user-images.githubusercontent.com/77955772/195962734-6a3e86be-c5c5-475f-8980-815819b07dfa.png"></img>
+#### ¡Descargas disponibles!: Obtén el software Presionando Aquí!
 
 ---
 
