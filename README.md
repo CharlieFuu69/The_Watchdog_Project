@@ -47,11 +47,11 @@ Para entender cómo implementar el circuito y hacerlo funcionar, ¡mira la docum
 Pues... para demostrar su correcto funcionamiento, decidí hacer esta pequeña galería con imágenes que tomé del proyecto (montado en PCB):
 
 <p align="center">
-  <img align="center" width="500" height="281" src="https://user-images.githubusercontent.com/77955772/195967373-46fb8716-c53e-47f8-8b69-55c26964f40e.jpg"></img>
-  <img align="center" width="500" height="281" src="https://user-images.githubusercontent.com/77955772/195967375-27151ff3-b6ed-49f3-a75e-932149ba2d62.jpg"></img>
-  <img align="center" width="500" height="281" src="https://user-images.githubusercontent.com/77955772/195966816-823162b1-a0d3-4045-b68b-ec05c7ed90bc.jpg"></img>
-  <img align="center" width="500" height="281" src="https://user-images.githubusercontent.com/77955772/195966834-1dde3015-0a2f-4735-9ab7-0241d3c99fca.jpg"></img>
-  <img align="center" width="500" height="281" src="https://user-images.githubusercontent.com/77955772/195966838-505f48cb-9983-4825-bcbf-ff1874f94efd.jpg"></img>
+  <img align="center" width="400" height="225" src="https://user-images.githubusercontent.com/77955772/195967373-46fb8716-c53e-47f8-8b69-55c26964f40e.jpg"></img>
+  <img align="center" width="400" height="225" src="https://user-images.githubusercontent.com/77955772/195967375-27151ff3-b6ed-49f3-a75e-932149ba2d62.jpg"></img>
+  <img align="center" width="400" height="225" src="https://user-images.githubusercontent.com/77955772/195966816-823162b1-a0d3-4045-b68b-ec05c7ed90bc.jpg"></img>
+  <img align="center" width="400" height="225" src="https://user-images.githubusercontent.com/77955772/195966834-1dde3015-0a2f-4735-9ab7-0241d3c99fca.jpg"></img>
+  <img align="center" width="400" height="225" src="https://user-images.githubusercontent.com/77955772/195966838-505f48cb-9983-4825-bcbf-ff1874f94efd.jpg"></img>
 </p>
 
 ---
