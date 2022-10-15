@@ -66,4 +66,5 @@ La documentación presente en este archivo estará dividida en 2 secciones: la <
 
 Con todo eso hecho, la placa podrá empezar a operar bajo la programación del sketch.
 
+* **NOTA:** _No modifiques los baudios en `Serial.begin()`, pues la placa Arduino y el programa GUI están configurados para transmitir y recibir datos a 38400 baudios. Cambiar este valor en el Sketch puede provocar lecturas incorrectas en el programa GUI._
 
