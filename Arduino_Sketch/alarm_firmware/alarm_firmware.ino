@@ -12,15 +12,14 @@ Display LCD
 - A5: Clock (SCL).
 
 Pilotos LED
-- D12: LED armado.
 - D11: LED alarma disparada.
+- D12: LED armado.
 
 Sensores
 - D2: Switch armado/desarmado.
 - D3: Zona 1.
 - D4: Zona 2.
 - D5: Zona 3.
-- D6: Zona 4.
 */
 
 // Librerías
@@ -32,21 +31,21 @@ Sensores
 
 // Status de alarma, zonas y buzzer de alerta.
 String alarm_status = "DISARMED";
-String z01 = "WAIT";
-String z02 = "WAIT";
-String z03 = "WAIT";
-bool buzzer_alert = false;
+String zone_status[3] = {"WAIT", "WAIT", "WAIT"};
+bool alarm_activated = false;
 
 
 // Distribución de pines y pantalla LCD
 int i2c_adress = 0x27;
+
 int pilot_armed = 12;
 int pilot_danger = 11;
-int pin_set = 2;
 
-int pin_z01 = 3;
-int pin_z02 = 4;
-int pin_z03 = 5;
+int pin_set = 2; // Botón armado/desarmadsso
+
+int pin_zone01 = 3;
+int pin_zone02 = 4;
+int pin_zone03 = 5;
 
 
 /* ---------------------------------------------------------------------------------------------------------------- */
@@ -62,7 +61,7 @@ byte sym_alarm_intruder[8] {0x00, 0x0E, 0x18, 0x1E, 0x1E, 0x0E, 0x0A, 0x0A};
 
 
 /*----------------------------------------------------------------------------------------------------------------- */
-// Funciones de actividad
+// Funciones de preparación
 
 // Inicialización (Secuencia única)
 void setup() {
@@ -77,9 +76,9 @@ void setup() {
     pinMode(pin_set, INPUT); // Botón de set.
 
     // Sensores (Zonas)
-    pinMode(pin_z01, INPUT); // Zona 1
-    pinMode(pin_z02, INPUT); // Zona 2
-    pinMode(pin_z03, INPUT); // Zona 3
+    pinMode(pin_zone01, INPUT); // Zona 1
+    pinMode(pin_zone02, INPUT); // Zona 2
+    pinMode(pin_zone03, INPUT); // Zona 3
 
     // Registro de símbolos
     lcd.createChar(0, sym_alarm_disarmed);
@@ -90,8 +89,26 @@ void setup() {
     lcd.print("Watchdog Alarm");
 }
 
+/*----------------------------------------------------------------------------------------------------------------- */
+// Funciones de secuencias simples
 
-void buzzer_trigger() {
+void buzzer_alarm_armed() {
+    /* Secuencia de beeps para alarma armada */
+    int beep_counter = 0;
+
+    while (beep_counter < 4){
+        digitalWrite(pilot_danger, HIGH);
+        delay(50);
+        digitalWrite(pilot_danger, LOW);
+        delay(50);
+
+        beep_counter += 1;
+    }
+}
+
+
+void buzzer_alarm_activated() {
+    /* Secuencia de beeps de alarma activada (vulnerada) */
     digitalWrite(pilot_danger, HIGH);
     delay(250);
     digitalWrite(pilot_danger, LOW);
@@ -99,25 +116,26 @@ void buzzer_trigger() {
 }
 
 
+/*----------------------------------------------------------------------------------------------------------------- */
+// Funciones de procesamiento de datos y actividad
+
 void activity_listener() {
     /* Esta función busca actividad no permitida en las zonas instaladas. */
-
-    String status_array[4] = {z01, z02, z03};
 
     lcd.setCursor(0,1);
 
     if (alarm_status == "ARMED") {
-        for (int i = 0; i < 4; i++) {
-            if (status_array[i] == "UNLOCKED") {
-                buzzer_alert = true;
+        for (int i = 0; i < 3; i++) {
+            if (zone_status[i] == "UNLOCKED") {
+                alarm_activated = true;
                 break;
             }
         }
 
-        if (buzzer_alert) {
+        if (alarm_activated) {
             lcd.write(2);
-            lcd.print(" BRUH          ");
-            buzzer_trigger();
+            lcd.print(" SUS          ");
+            buzzer_alarm_activated();
         }
         else {
             lcd.write(1);
@@ -137,7 +155,7 @@ void stream_data(String status, String z1, String z2, String z3) {
 
     String data_strip = "{\"alarm_status\" : \"" + status + "\", \"z01\" : \"" + z1 + "\", \"z02\" : \"" + z2 + "\" , \"z03\" : \"" + z3 + "\"}\n";
 
-    if (!buzzer_alert){
+    if (!alarm_activated){
         Serial.print(data_strip);
     }
 }
@@ -152,50 +170,41 @@ String zone(int zone_pin) {
 
 
 /*----------------------------------------------------------------------------------------------------------------- */
-// Ejecución (Bucle)
+// Ejecución constante (Bucle)
 
 void loop() {
-    // Lectura de botón de armado/desarmado
-    int alarm_set = digitalRead(pin_set);
+    // Recepción de datos (puerto serie)
     String stream_read = "NULL";
 
     if (Serial.available() > 0) {
         stream_read = Serial.readString();
     }
 
-    z01 = zone(digitalRead(pin_z01));
-    z02 = zone(digitalRead(pin_z02));
-    z03 = zone(digitalRead(pin_z03));
+    // Entradas digitales
+    int alarm_set = digitalRead(pin_set);
+
+    zone_status[0] = zone(digitalRead(pin_zone01));
+    zone_status[1] = zone(digitalRead(pin_zone02));
+    zone_status[2] = zone(digitalRead(pin_zone03));
 
     // Ajuste de armado/desarmado
     if ((alarm_set == 1 || stream_read == "1") && alarm_status == "DISARMED"){
         alarm_status = "ARMED";
         digitalWrite(pilot_armed, HIGH);
 
-        digitalWrite(pilot_danger, LOW);
-        delay(50);
-        digitalWrite(pilot_danger, HIGH);
-        delay(50);
-        digitalWrite(pilot_danger, LOW);
-        delay(50);
-        digitalWrite(pilot_danger, HIGH);
-        delay(50);
-        digitalWrite(pilot_danger, LOW);
-        delay(50);
-        digitalWrite(pilot_danger, HIGH);
-        delay(50);
-        digitalWrite(pilot_danger, LOW);
+        buzzer_alarm_armed();
         delay(950);
     }
     else if ((alarm_set == 1 || stream_read == "0") && alarm_status == "ARMED") {
         alarm_status = "DISARMED";
-        buzzer_alert = false;
+        alarm_activated = false;
         digitalWrite(pilot_armed, LOW);
         digitalWrite(pilot_danger, LOW);
         delay(1000);
     }
 
-    stream_data(alarm_status, z01, z02, z03); // Procesado y entrega de datos
+    // Procesado, entrega de datos y escucha de actividad
+    stream_data(alarm_status, zone_status[0], zone_status[1], zone_status[2]);
     activity_listener();
 
     delay(100);
