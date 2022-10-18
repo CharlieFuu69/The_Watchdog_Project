@@ -59,12 +59,12 @@ La documentación presente en este archivo estará dividida en 2 secciones: la <
   |Texas Instruments - PCF8574|`0x27`|
   |NXP Semiconductors - PCF8574|`0x3F`|
   
-  Puedes editar la dirección de la pantalla en la variable `i2c_adress`, ubicado en la línea `41` del sketch. Por defecto se estableció la dirección `0x27`.
+  Puedes editar la dirección de la pantalla en la variable `i2c_adress`, ubicado en la línea `39` del sketch. Por defecto se estableció la dirección `0x27`.
 * **Paso 5:** Si ya hiciste todo lo anterior (incluido el armado del circuito), compila el código y cárgalo a tu placa Arduino. Comprueba antes de que tu placa esté siendo leída en algún puerto, y que ese puerto no esté ocupado.
   <img width="800" height="450" src=https://user-images.githubusercontent.com/77955772/195958922-f86d4573-5cc9-4b61-902d-c014b1cba868.png>
+  
+* **NOTA:** _No modifiques los baudios en `Serial.begin()`, pues la placa Arduino y el programa GUI están configurados para transmitir y recibir datos a 38400 baudios. Cambiar este valor en el Sketch puede provocar lecturas incorrectas en el programa GUI._
 
 
 Con todo eso hecho, la placa podrá empezar a operar bajo la programación del sketch.
-
-* **NOTA:** _No modifiques los baudios en `Serial.begin()`, pues la placa Arduino y el programa GUI están configurados para transmitir y recibir datos a 38400 baudios. Cambiar este valor en el Sketch puede provocar lecturas incorrectas en el programa GUI._
 
